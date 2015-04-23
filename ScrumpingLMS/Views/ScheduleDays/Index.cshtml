@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ScrumpingLMS.Models.ScheduleDayViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kursschema: @if (User.IsInRole("elev"))
+{ 
+    @ViewBag.KlassNamn
+}</h2>
+
+
+<script type="text/javascript">
+    function sendParam(val) {
+        alert(val);
+        window.location.href = "/ScheduleDays/Schindex/" + val;
+  //      window.location.href = "/ScheduleDays/KlassFilter/" + val;
+    }
+</script>
+
+<!--
+<script language="javascript" type="text/javascript">
+   
+        $("#KlassId").change(function () {
+            var dropdownval = $("#KlassId").val();
+            $.ajax({
+                type: "POST",
+                url: "ScheduleDaysController/IndexFromSelectKlass",
+
+                data: "{'Message':dropdownValue}",
+                contentType: "application/json; charset=utf-8",
+            });
+        });
+</script>
+-->
+
+<h3>Idag: @DateTime.Now.ToString("yyyy-MM-dd")</h3>
+
+<hr />
+
+@if (User.IsInRole("lärare"))
+{
+    <div class="form-group">
+        @Html.Label("KlassId", "Klass", htmlAttributes: new { @class = "control-label col-md-2" })
+        <!--<div class="control-label col-md-2"><b>Klass</b></div>-->
+        <div class="col-md-10">
+            @*@Html.DropDownList("KlassId", null, new { onchange = "window.location.href='/ScheduleDays/Details/' + 152" })*@
+            @*@Html.DropDownList("KlassId", null, new { onchange = "window.location.href='/ScheduleDays/index/' + this.value" })*@
+            @*@Html.DropDownList("KlassId", null, new { @onchange = "sendParam(this.value)" })*@
+            @Html.DropDownList("KlassId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessage("KlassId", "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+
+@*@Html.Partial("_ScheduleCalendar", Model)*@
+
+@if (User.IsInRole("lärare")) { 
+    @Html.Partial("_ScheduleList", Model)
+}
+else { 
+    @Html.Partial("_ScheduleCalendar", Model)
+}    

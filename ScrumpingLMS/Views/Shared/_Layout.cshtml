@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Learning Management System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="~/Scripts/d3/d3.js"></script>
+    <script src="~/Scripts/lms.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("LMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("lärare"))
+                    {
+                        <li>@Html.ActionLink("Schema", "Index", "ScheduleDays")</li>
+                        <li>@Html.ActionLink("Inlämningsuppgifter", "Index", "Dokuments")</li>
+                    
+                    }
+                    else if (User.IsInRole("elev"))
+                    {
+                        <li>@Html.ActionLink("Schema", "Index", "ScheduleDays")</li>
+                        <li>@Html.ActionLink("Inlämningsuppgifter", "Index", "Dokuments")</li>
+                        <li>@Html.ActionLink("KursDokument", "Index", "ScheduleDayUploads")</li>
+                        <li>@Html.ActionLink("Klass", "IndexKlass", "Klasses")</li>
+
+                    }
+
+                    @if (User.IsInRole("lärare"))
+                    {
+                        <li>@Html.ActionLink("Kursdokument", "Index", "ScheduleDayUploads")</li>
+                        <li>@Html.ActionLink("Klasser", "Index", "Klasses")</li>
+                        <li>@Html.ActionLink("Lärare-Kurs", "Index", "KlassApplicationUsers")</li>
+                        <li>@Html.ActionLink("Personer", "Index", "ApplicationUsers")</li>
+                    }
+                    
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br/>
+        @RenderBody()
+        <hr />
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div>
+                    <img width="142" height="40" src="~/Images/logo-lexicon-small@2x.gif" />
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Om", "About", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li class="footertext col-md-offset-1">&copy; @DateTime.Now.Year - Åsens Pallade Kjellkod</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

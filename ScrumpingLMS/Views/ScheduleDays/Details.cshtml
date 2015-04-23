@@ -1,0 +1,56 @@
+﻿@model ScrumpingLMS.Models.ScheduleDay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljer för schema</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <!--@Html.DisplayNameFor(model => model.Klass.Name)-->
+            Klass
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klass.Name)
+        </dd>
+
+        <dt>
+            <!--@Html.DisplayNameFor(model => model.DayNumber)-->
+            Dag
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayNumber)
+        </dd>
+
+        <dt>
+            <!--@Html.DisplayNameFor(model => model.Details)-->
+            Detaljer
+        </dt>
+
+        <dd>
+            @{var text = Model.Details;}
+            @Html.Raw(@text)
+        </dd>
+
+        <dt>
+            Kursdokument
+        </dt>
+
+        <dd>
+            (Uppgift återstår)
+        </dd>
+    </dl>
+
+</div>
+<p>
+    @if (User.IsInRole("lärare"))
+    {
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) 
+    }
+     @Html.ActionLink("Tillbaka till listan", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿@model ScrumpingLMS.Models.KlassApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljer</h2>
+
+<div>
+        <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Klass.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klass.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Tillbaka till listan", "Index")
+</p>

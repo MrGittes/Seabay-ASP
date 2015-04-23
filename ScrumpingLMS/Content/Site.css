@@ -1,0 +1,240 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+tr:nth-child(even) {
+background-color: #ccc; 
+color: #808080;
+}
+
+.rader:nth-child(even){
+background-color: #ccc; 
+color: #808080;
+}
+
+hr {
+    color: #d60000;
+    background-color: #d60000;
+    height: 4px;
+}
+
+.btn {
+    background-color: #d60000;
+    color: #FFFFFF;
+}
+
+.footertext{
+    color:white;
+}
+
+.schcontainer {
+   height: auto;
+   overflow: hidden;
+}
+
+.schright {
+    position:relative;
+    width: 227px;
+    height: 300px;
+    float: left;
+    background: #eee;
+    border: 1px solid black;
+    padding-left: 2px;
+}
+
+.scheduledayhead {
+    background-color: #d60000;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.linkinschedule {
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+.linkdetail {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.schrightred {
+    width: 225px;
+    height: 300px;
+    float: left;
+    background: #400;
+    border: 1px solid red;
+}
+
+.linkname {
+    color:#FF6600;
+ /*   background-color: black;  */
+}
+.schleft {
+    float: none; /* not needed, just for clarification */
+    background: #e8f6fe;
+    /* the next props are meant to keep this block independent from the other floated one */
+    width: auto;
+    overflow: hidden;
+}​​
+
+.scheduleborder {
+     border-style: solid;
+     border-color: red;
+     color:green;
+ }
+
+.scheduletable {
+     border: 2px solid black;
+     width: 100%;
+}
+
+.scheduleday {
+    vertical-align: top;
+    height: 300px;
+    border: 1px solid black;
+    padding:2px;
+}
+
+/*
+a:visited {
+    color:#FF6600;
+    text-decoration: none;
+}
+*/
+/*
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+    width: 60px;
+    text-decoration:none;
+    color: #d60000;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+*/
+
+
+/*
+#centeredmenu {
+   float:left;
+   width:100%;
+   background:#fff;
+   border-bottom:4px solid #000;
+   overflow:hidden;
+   position:relative;
+}
+
+#centeredmenu ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+
+/*
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+    width: 60px;
+    text-decoration:none;
+    color: #d60000;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+*/
+
+
+/*
+#centeredmenu {
+   float:left;
+   width:100%;
+   background:#fff;
+   border-bottom:4px solid #000;
+   overflow:hidden;
+   position:relative;
+}
+
+#centeredmenu ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+
+#centeredmenu ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+#centeredmenu ul li a {
+   display:block;
+   margin:0 0 0 1px;
+   padding:3px 10px;
+   background:#fff;  
+   color:#000;
+   text-decoration:none;
+   line-height:5.3em;
+}
+#centeredmenu ul li a:hover {
+   background:#d60000;
+   color:#fff;
+}
+#centeredmenu ul li a.active,
+#centeredmenu ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
+}
+
+*/

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ScrumpingLMS.Models.ScheduleDayUpload>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista på kursdokument</h2>
+
+<p>
+    @if(User.IsInRole("lärare")){
+      @Html.ActionLink("Lägg till nytt kursdokument", "Create")
+    }        
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Klass.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DayNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dokumentnamn)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Klass.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayNumber)
+            </td>
+            <td>
+                <a href="@item.LinkToDokument">@Html.DisplayFor(modelItem => item.Dokumentnamn)</a>
+            </td>
+            @if(User.IsInRole("lärare"))
+            { 
+                <td>
+                    @Html.ActionLink("Radera", "Delete", new { id = item.Id })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

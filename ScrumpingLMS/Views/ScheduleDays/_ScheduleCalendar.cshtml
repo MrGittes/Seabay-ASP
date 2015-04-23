@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ScrumpingLMS.Models.ScheduleDayViewModel>
+
+<div id="KlassList">
+    <div class="schcontainer">
+
+        @foreach (var item in Model)
+        {
+            var classname = "schright";
+            if (DateTime.Now.CompareTo(item.WorkingDate) == 0) { classname = "schrigtred"; }
+            @*@if (DateTime.Now.CompareTo(item.WorkingDate) == 0) {<div class="schrightred"> }
+             else (DateTime.Now.CompareTo(item.WorkingDate) != 0) {<div class="schright">  }*@
+                    <div class="schright">
+                         <div class="scheduledayhead">
+                             Dag: @Html.DisplayFor(modelItem => item.DayNumber)
+                             @item.WorkingDate.ToShortDateString()</div><br />
+                         @{var text = item.Details;}
+                         @Html.Raw(@text) &nbsp;
+
+                         <div class="linkinschedule"><a class="linkname" href="@item.LinkToDokument" target="_blank">@item.DokumentName</a></div>
+                         <div class="linkdetail">@Html.ActionLink("Detaljer", "Details", new { id = item.Id })</div>
+                     </div>
+            }
+        </div>
+
+    </div>
+
+
